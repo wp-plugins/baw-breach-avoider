@@ -4,14 +4,23 @@ Plugin Name: BAW BREACH Avoider
 Description: Avoid to be easily the target of the new HTTPS BREACH vulnerability <em>(see <a target="_blank"href="http://www.kb.cert.org/vuls/id/987798">http://www.kb.cert.org/vuls/id/987798</a> - Aug. 2013)</em>.
 Author: juliobox
 Author URI: http://www.boiteaweb.fr
-Plugin URI: http://www.boiteaweb.fr
-Version: 1.0
+Plugin URI: http://boiteaweb.fr/breach-avoider-comment-eviter-hack-https-7472.html
+Version: 1.1
 */
 
 defined( 'ABSPATH' ) or	die( 'Cheatin\' uh?' );
 
 defined( 'BBA_REPEATER' ) or define( 'BBA_REPEATER', 2 );
 defined( 'BBA_NONCE_LENGTH' ) or define( 'BBA_NONCE_LENGTH', 10 ); // Min 4, Max 32, Default 10
+
+if( !function_exists( 'hex2bin' ) ):
+	function hex2bin( $hex ) {
+		if( !( strlen( $hex ) & 1 ) )
+			$hex .= '0'; // Avoid a warning in PHP 5.4.1+
+		$hex = pack( 'H*', $hex );
+		return $hex;
+	}
+endif;
 
 if( !function_exists( 'wp_verify_nonce' ) ) :
 	function wp_verify_nonce( $nonce, $action = -1 )
@@ -22,8 +31,6 @@ if( !function_exists( 'wp_verify_nonce' ) ) :
 		// Get a salt
 		$NONCE_SALT = wp_salt( 'nonce' );
 		// Get the correct nonce from the friendly format
-		if( !( strlen( $none ) & 1 ) )
-			$nonce .= '0'; // Avoid a PHP Warning in PHP 5.4.1+
 		$nonce = hex2bin( $nonce );
 		// Reverse the XORed nonce
 		for( $i=0; $i<strlen($nonce); $i++ )
@@ -89,7 +96,7 @@ if( !function_exists( 'wp_create_nonce' ) ) :
             $nonce{$i} = $nonce{$i} ^ $NONCE_SALT{$i%BBA_NONCE_LENGTH};
         // Get a friendly nonce
         $nonce = bin2hex( $nonce );
-        
+
 		return $nonce;
 	}
 endif;
