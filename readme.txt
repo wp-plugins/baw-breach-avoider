@@ -37,16 +37,16 @@ Read this http://www.kb.cert.org/vuls/id/987798 and this http://breachattack.com
 
 = How to protect against BREACH? =
 Some of these mitigations may protect entire applications, while others may only protect individual web pages.
-1. Disable HTTP compression. (+)
-2. Separate the secrets from the user input. (++)
+1. Disable HTTP compression. (1)
+2. Separate the secrets from the user input. (2)
 3. Randomize the secrets in each client request. -> Done!
 4. Mask secrets (effectively randomizing by XORing with a random secret per request). -> Done!
-5. Protect web pages from CSRF attacks. (+++)
+5. Protect web pages from CSRF attacks. (5)
 6. Obfuscate the length of web responses by adding random amounts of arbitrary bytes. -> Done!
 
-(*) I do not recommand this because of lack of performance, at least, but you can do it yourself in you PHP.ini or .htaccess, google "how to disable http gzip compression"
-(**) Can't do this in WordPress.
-(***) I recommand my other plugin "ANTI-CRSF" http://wordpress.org/plugins/baw-anti-csrf/
+(1) I do not recommand this because of lack of performance, at least, but you can do it yourself in you PHP.ini or .htaccess, google "how to disable http gzip compression"
+(2) Can't do this in WordPress.
+(5) I recommand my other plugin "ANTI-CRSF" http://wordpress.org/plugins/baw-anti-csrf/
 
 Install this plugin and be protected as much as we can do in WordPress.
 
