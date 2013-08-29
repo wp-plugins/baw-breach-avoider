@@ -29,6 +29,8 @@ BBA_REPEATER : used by this plugin to add a new secret srting in each nonces (e 
 
 BBA_NONCE_LENGTH : From 4 to 32 with 10 for default value, you can modify the length the each nonces in WordPress, the longer, the better
 
+Also, WordPress includes a "nonce_life" filter hook. Its default value is 4 hours (DAY_IN_SECONDS), i suggest you to low this value, like 12 hours or 6 hours (HOUR_IN_SECONDS /2 or /4)
+
 == Frequently Asked Questions ==
 
 = What is BREACH? =
@@ -54,6 +56,10 @@ Install this plugin and be protected as much as we can do in WordPress.
 Nothing here yet.
 
 == Changelog ==
+
+= 1.1 =
+* 29 aug 2013
+* hex2bin() is not always available, use a pack() instead
 
 = 1.0 =
 * 29 aug 2013
