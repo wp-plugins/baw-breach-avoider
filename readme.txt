@@ -57,6 +57,10 @@ Nothing here yet.
 
 == Changelog ==
 
+= 1.2 =
+* 29 aug 2013
+* New problem with pack() now, use my own function.
+
 = 1.1 =
 * 29 aug 2013
 * hex2bin() is not always available, use a pack() instead
