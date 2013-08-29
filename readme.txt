@@ -14,7 +14,7 @@ In August 2013, a new Web Vulnerability has been released, in some words : "HTTP
 
 If you're using the HTTPS (TSL or SSL) at any level (admin, front, event for 1 page) you HAVE to protect your site against this flaw now.
 
-How ? Just install this free plugin.
+How ? Just install this free plugin!
 
 == Installation ==
 
