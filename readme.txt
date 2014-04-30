@@ -2,7 +2,7 @@
 Contributors: juliobox
 Tags: security, https, breach
 Requires at least: 2.5
-Tested up to: 3.6
+Tested up to: 3.9
 Stable tag: trunk
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RB7646G6NVPWU
 License: GPLv2

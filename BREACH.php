@@ -2,16 +2,16 @@
 /*
 Plugin Name: BAW BREACH Avoider
 Description: Avoid to be easily the target of the new HTTPS BREACH vulnerability <em>(see <a target="_blank"href="http://www.kb.cert.org/vuls/id/987798">http://www.kb.cert.org/vuls/id/987798</a> - Aug. 2013)</em>.
-Author: juliobox
-Author URI: http://www.boiteaweb.fr
-Plugin URI: http://boiteaweb.fr/breach-avoider-comment-eviter-hack-https-7472.html
+Plugin URI: http://blog.secupress.fr/breach-avoider-comment-eviter-hack-https-48.html
 Version: 1.2
+Author: Julio Potier
+Author URI: http://www.boiteaweb.fr
 */
 
 defined( 'ABSPATH' ) or	die( 'Cheatin\' uh?' );
 
 defined( 'BBA_REPEATER' ) or define( 'BBA_REPEATER', 2 );
-defined( 'BBA_NONCE_LENGTH' ) or define( 'BBA_NONCE_LENGTH', 10 ); // Min 4, Max 32, Default 10
+defined( 'BBA_NONCE_LENGTH' ) or define( 'BBA_NONCE_LENGTH', 10 ); // Min 4, Max 32
 
 function bba_hex2bin( $hexstr ) {
     $n = strlen($hexstr); 
@@ -118,8 +118,7 @@ function bba_add_dynamic_content()
 
 if( !function_exists( 'baw_nonce_user_logged_out' ) ):
 	add_filter( 'nonce_user_logged_out', 'baw_nonce_user_logged_out' );
-	function baw_nonce_user_logged_out()
-	{
+	function baw_nonce_user_logged_out() {
 		return md5( baw_get_IP() );
 	}
 endif;
