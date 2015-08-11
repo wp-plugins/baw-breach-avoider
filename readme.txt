@@ -1,8 +1,8 @@
 === BREACH Avoider ===
 Contributors: juliobox
 Tags: security, https, breach
-Requires at least: 2.5
-Tested up to: 3.9
+Requires at least: 3.9
+Tested up to: 4.3
 Stable tag: trunk
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RB7646G6NVPWU
 License: GPLv2
@@ -29,7 +29,7 @@ BBA_REPEATER : used by this plugin to add a new secret srting in each nonces (e 
 
 BBA_NONCE_LENGTH : From 4 to 32 with 10 for default value, you can modify the length the each nonces in WordPress, the longer, the better
 
-Also, WordPress includes a "nonce_life" filter hook. Its default value is 4 hours (DAY_IN_SECONDS), i suggest you to low this value, like 12 hours or 6 hours (HOUR_IN_SECONDS /2 or /4)
+Also, WordPress includes a "nonce_life" filter hook. Its default value is 1 day, i suggest you to low this value, like 12 hours or 6 hours (DAY_IN_SECONDS /2 or /4)
 
 == Frequently Asked Questions ==
 
@@ -43,19 +43,24 @@ Some of these mitigations may protect entire applications, while others may only
 2. Separate the secrets from the user input. (2)
 3. Randomize the secrets in each client request. -> Done!
 4. Mask secrets (effectively randomizing by XORing with a random secret per request). -> Done!
-5. Protect web pages from CSRF attacks. (5)
+5. Protect web pages from CSRF attacks.
 6. Obfuscate the length of web responses by adding random amounts of arbitrary bytes. -> Done!
 
 (1) I do not recommand this because of lack of performance, at least, but you can do it yourself in you PHP.ini or .htaccess, google "how to disable http gzip compression"
 (2) Can't do this in WordPress.
-(5) I recommand my other plugin "ANTI-CRSF" http://wordpress.org/plugins/baw-anti-csrf/
 
 Install this plugin and be protected as much as we can do in WordPress.
 
 == Upgrade Notice ==
-Nothing here yet.
+1.0 -> 1.2 requires WP 2.5
+1.3+ requires WP 3.9 minimum
 
 == Changelog ==
+
+= 1.3 =
+* 11 aug 2015
+* 4.3 support
+* Security hardening using wp_get_session_token() + hash_equals()
 
 = 1.2 =
 * 29 aug 2013
@@ -67,4 +72,4 @@ Nothing here yet.
 
 = 1.0 =
 * 29 aug 2013
-* Public release
+* First release
